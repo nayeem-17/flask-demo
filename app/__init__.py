@@ -1,18 +1,19 @@
 # Flask application factory
 from flask import Flask
+from .utils.logger import setup_logger
 
 # DevelopmentConfig
-from app.blueprints.main import main as main_blueprint
 from app.config.development import DevelopmentConfig
-from app.models.user import *
 from app.utils.database import db
+from app.blueprints.user import user as user_blueprint
 
 
 def create_app(config_class=DevelopmentConfig):
     app = Flask(__name__)
     app.config.from_object(config_class)
+    setup_logger(app)
     db.init_app(app)
     # Register blueprints/
-    app.register_blueprint(main_blueprint)
+    app.register_blueprint(user_blueprint, url_prefix="/api/users")
 
     return app

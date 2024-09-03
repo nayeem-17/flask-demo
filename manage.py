@@ -10,11 +10,6 @@ migrate = Migrate(app, db)
 @app.cli.command("seed")
 def seed():
     """Seed the database with initial data."""
-    from app.models.user import User  # Import your models
-
-    user = User(username="admin")
-    db.session.add(user)
-    db.session.commit()
     print("Database seeded with initial data.")
 
 

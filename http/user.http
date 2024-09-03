@@ -1,0 +1,58 @@
+@baseUrl = http://localhost:5000/api/users
+
+### Create a new user
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "profile_pic": "http://example.com/john.jpg"
+}
+
+### Get a user by ID
+GET {{baseUrl}}/4d7edffc-ceb2-432d-adad-fb63ec61f0a7
+
+### Update a user
+PUT {{baseUrl}}/4d7edffc-ceb2-432d-adad-fb63ec61f0a7
+Content-Type: application/json
+
+{
+    "name": "John Updated Doe",
+    "email": "john.updated@example.com"
+}
+
+### Delete a user
+DELETE {{baseUrl}}/1
+
+### Create a user with invalid email (for testing validation)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+    "name": "Invalid Email User",
+    "email": "not-an-email",
+    "profile_pic": "http://example.com/invalid.jpg"
+}
+
+### Update a user with invalid email (for testing validation)
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+    "email": "not-an-email"
+}
+
+### Get a non-existent user
+GET {{baseUrl}}/999
+
+### Update a non-existent user
+PUT {{baseUrl}}/999
+Content-Type: application/json
+
+{
+    "name": "Non-existent User"
+}
+
+### Delete a non-existent user
+DELETE {{baseUrl}}/999
