@@ -1,7 +1,7 @@
 from .model import User
 from .dto import UserCreate, UserUpdate, UserResponse
 from app.utils.database import db
-from app.utils.logger import logger
+from app.utils.logger import logger  # This should now work correctly
 from sqlalchemy.exc import IntegrityError
 from pydantic import ValidationError
 import uuid
