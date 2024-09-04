@@ -6,3 +6,8 @@ requests==2.32.3
 oauthlib==3.0.1
 pyOpenSSL==24.2.1
 Flask-Login==0.6.3
+pydantic[email]
+email-validator
+pydantic
+psycopg2-binary
+python-dotenv
